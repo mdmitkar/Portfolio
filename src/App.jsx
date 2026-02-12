@@ -186,12 +186,16 @@ function App() {
                     <div className={`absolute ${isMobile ? 'top-48 right-4 space-y-24' : 'top-16 left-96 space-y-28'}`}>
                         <DesktopIcon id="contact" label="Mail" icon="✉️" onDoubleClick={() => openWindow('contact')} />
                     </div>
+                    {/* Resume Icon */}
+                    <div className={`absolute ${isMobile ? 'top-80 left-4 space-y-24' : 'top-16 left-[30rem] space-y-28'}`}>
+                        <DesktopIcon id="resume" label="Resume" icon="📄" isPdf={true} onDoubleClick={() => openWindow('resume')} />
+                    </div>
                     {/* Burp Suite Shortcut */}
-                    <div className={`absolute ${isMobile ? 'bottom-24 left-4' : 'top-16 left-[30rem] space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'bottom-24 left-4' : 'top-16 left-[36rem] space-y-28'}`}>
                         <DesktopIcon id="browser" label="Firefox" icon="🌐" onDoubleClick={() => openWindow('browser')} />
                     </div>
 
-                    <div className={`absolute ${isMobile ? 'bottom-24 right-4' : 'top-16 left-[36rem] space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'bottom-24 right-4' : 'top-16 left-[42rem] space-y-28'}`}>
                         <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => { }} />
                     </div>
                 </div >
