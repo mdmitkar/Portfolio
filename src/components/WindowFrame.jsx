@@ -138,7 +138,7 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
             {/* Title Bar - Yaru Style */}
             <div
                 ref={dragHandleRef}
-                className={`flex items-center justify-between px-4 py-3 select-none cursor-default touch-none
+                className={`flex items-center justify-between px-4 py-3 md:py-3 py-4 select-none cursor-grab active:cursor-grabbing touch-none
                     ${isActive ? 'bg-[#2c2c2c]' : 'bg-[#2c2c2c]/90'} border-b border-[#111] transition-colors rounded-t-xl`}
                 onDoubleClick={onMaximize}
             >
