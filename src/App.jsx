@@ -12,7 +12,7 @@ import BootScreen from './components/BootScreen';
 import SystemWidget from './components/SystemWidget';
 import TrashBin from './components/TrashBin';
 import gsap from 'gsap';
-import Draggable from 'gsap/Draggable';
+import { Draggable } from 'gsap/all';
 
 gsap.registerPlugin(Draggable);
 

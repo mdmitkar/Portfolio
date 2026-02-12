@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { X, Minus, Square } from 'lucide-react';
 import gsap from 'gsap';
-import Draggable from 'gsap/Draggable';
+import { Draggable } from 'gsap/all';
 
 gsap.registerPlugin(Draggable);
 
