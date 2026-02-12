@@ -46,22 +46,23 @@ const Terminal = ({ onCommand }) => {
             const newHistory = [...history, { type: 'prompt', content: input }];
 
             if (cmd === 'clear') {
-                setHistory([{ type: 'output', content: 'mitkar@ubuntu:~$' }]);
-                // Simulate clearing but keep prompt
-            } else if (commands[cmd]) {
-                if (cmd === 'neofetch') {
-                    newHistory.push({ type: 'raw', content: commands[cmd] });
-                } else {
-                    newHistory.push({ type: 'output', content: commands[cmd] });
-                }
+                setHistory([]);
+            } else {
+                if (commands[cmd]) {
+                    if (cmd === 'neofetch') {
+                        newHistory.push({ type: 'raw', content: commands[cmd] });
+                    } else {
+                        newHistory.push({ type: 'output', content: commands[cmd] });
+                    }
 
-                if (['about', 'work', 'contact'].includes(cmd)) {
-                    onCommand(cmd);
+                    if (['about', 'work', 'contact', 'resume', 'browser', 'trash'].includes(cmd)) {
+                        onCommand(cmd);
+                    }
+                } else if (cmd !== '') {
+                    newHistory.push({ type: 'error', content: `bash: ${cmd}: command not found` });
                 }
-            } else if (cmd !== '') {
-                newHistory.push({ type: 'error', content: `bash: ${cmd}: command not found` });
+                setHistory(newHistory);
             }
-            setHistory(newHistory);
             setInput('');
         }
     };

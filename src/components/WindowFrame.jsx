@@ -5,12 +5,14 @@ import Draggable from 'gsap/Draggable';
 
 gsap.registerPlugin(Draggable);
 
-const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos = { x: 50, y: 50 }, width = '600px', height = '400px' }) => {
+const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos = { x: 50, y: 50 }, width = '600px', height = '400px', isMinimized, isMaximized, onMinimize, onMaximize }) => {
     const windowRef = useRef(null);
     const dragHandleRef = useRef(null);
 
+    const [isDraggableMobile, setIsDraggableMobile] = React.useState(false);
+
     useEffect(() => {
-        Draggable.create(windowRef.current, {
+        const d = Draggable.create(windowRef.current, {
             trigger: dragHandleRef.current,
             // Allow windows to go slightly off-screen for realism (user can still grab them)
             bounds: { top: 0, left: -200, width: window.innerWidth + 400, height: window.innerHeight + 200 },
@@ -18,6 +20,7 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
             edgeResistance: 0.5,
             type: "x,y",
             zIndexBoost: false,
+            allowContextMenu: true,
             onPress: () => {
                 onFocus();
                 // Smooth lift
@@ -38,7 +41,59 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
                 });
             }
         });
+        return () => d[0].kill();
     }, [onFocus]);
+
+    // Handle Maximize/Minimize State
+    useEffect(() => {
+        const tracker = Draggable.get(windowRef.current);
+        if (isMaximized) {
+            tracker?.disable();
+            gsap.to(windowRef.current, {
+                top: 0, left: 0, x: 0, y: 0,
+                width: '100vw', height: '100vh',
+                borderRadius: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        } else {
+            tracker?.enable();
+            if (tracker) {
+                // Restore previous transform if dragged, or default
+                gsap.to(windowRef.current, {
+                    width: width,
+                    height: height,
+                    x: tracker.x,
+                    y: tracker.y,
+                    borderRadius: '0.75rem',
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            }
+        }
+    }, [isMaximized, width, height]);
+
+    useEffect(() => {
+        if (isMinimized) {
+            gsap.to(windowRef.current, {
+                opacity: 0,
+                scale: 0.8,
+                y: 100,
+                duration: 0.3,
+                ease: "power2.in",
+                pointerEvents: 'none'
+            });
+        } else {
+            gsap.to(windowRef.current, {
+                opacity: 1,
+                scale: 1,
+                y: isMaximized ? 0 : (Draggable.get(windowRef.current)?.y || 0),
+                duration: 0.3,
+                ease: "power2.out",
+                pointerEvents: 'auto'
+            });
+        }
+    }, [isMinimized, isMaximized]);
 
     // Open Animation
     useEffect(() => {
@@ -78,13 +133,14 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
                 minHeight: '200px'
             }}
             onMouseDown={onFocus}
+            onTouchStart={onFocus}
         >
             {/* Title Bar - Yaru Style */}
             <div
                 ref={dragHandleRef}
-                className={`flex items-center justify-between px-4 py-3 select-none cursor-default
+                className={`flex items-center justify-between px-4 py-3 select-none cursor-default touch-none
                     ${isActive ? 'bg-[#2c2c2c]' : 'bg-[#2c2c2c]/90'} border-b border-[#111] transition-colors rounded-t-xl`}
-                onDoubleClick={() => {/* maximize logic future */ }}
+                onDoubleClick={onMaximize}
             >
                 {/* Branding / Title */}
                 <div className="flex items-center gap-3 pointer-events-none">
@@ -98,10 +154,16 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
                     onMouseDown={(e) => e.stopPropagation()}
                     onTouchStart={(e) => e.stopPropagation()}
                 >
-                    <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white transition-colors">
+                    <button
+                        onClick={onMinimize}
+                        onTouchEnd={(e) => { e.stopPropagation(); onMinimize(); }}
+                        className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white transition-colors">
                         <Minus size={12} />
                     </button>
-                    <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white transition-colors">
+                    <button
+                        onClick={onMaximize}
+                        onTouchEnd={(e) => { e.stopPropagation(); onMaximize(); }}
+                        className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white transition-colors">
                         <Square size={10} />
                     </button>
                     <button

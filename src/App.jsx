@@ -122,6 +122,8 @@ function App() {
                 component: id === 'browser' ? 'browser' : component,
                 isOpen: true,
                 active: true,
+                minimized: false,
+                maximized: false,
                 pos: { x: defaultX, y: defaultY },
                 w, h,
                 props
@@ -131,6 +133,17 @@ function App() {
 
     const closeWindow = (id) => {
         setWindows(prev => prev.filter(w => w.id !== id));
+    };
+
+    const toggleMinimize = (id) => {
+        setWindows(prev => prev.map(w => {
+            if (w.id === id) return { ...w, minimized: !w.minimized, active: !w.minimized ? false : true };
+            return w;
+        }));
+    };
+
+    const toggleMaximize = (id) => {
+        setWindows(prev => prev.map(w => w.id === id ? { ...w, maximized: !w.maximized } : w));
     };
 
     const renderComponent = (type, props) => {
@@ -189,7 +202,7 @@ function App() {
 
                     {/* Exploits (Work) */}
                     <div className={`absolute ${isMobile ? 'left-52 top-80' : 'top-16 left-44 space-y-28'}`}>
-                        <DesktopIcon id="projects" label="Exploits" icon="🛠️" onDoubleClick={() => openWindow('work')} />
+                        <DesktopIcon id="projects" label="Projects" icon="🛠️" onDoubleClick={() => openWindow('work')} />
                     </div>
 
                     {/* Terminal */}
@@ -227,6 +240,10 @@ function App() {
                             key={win.id}
                             title={win.title}
                             isActive={win.active}
+                            isMinimized={win.minimized}
+                            isMaximized={win.maximized}
+                            onMinimize={() => toggleMinimize(win.id)}
+                            onMaximize={() => toggleMaximize(win.id)}
                             onFocus={() => bringToFront(win.id)}
                             onClose={() => closeWindow(win.id)}
                             initialPos={win.pos}
