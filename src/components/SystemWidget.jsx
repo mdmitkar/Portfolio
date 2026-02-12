@@ -24,7 +24,7 @@ const SystemWidget = () => {
     }, []);
 
     return (
-        <div className="absolute top-20 right-8 w-64 p-4 font-mono text-xs text-white/80 bg-black/40 backdrop-blur-sm rounded-lg border border-white/5 pointer-events-none select-none z-0">
+        <div className="absolute top-20 left-24 right-4 md:left-auto md:right-8 w-auto md:w-64 p-4 font-mono text-xs text-white/80 bg-black/40 backdrop-blur-sm rounded-lg border border-white/5 pointer-events-none select-none z-0">
             <div className="text-blue-400 font-bold mb-2 border-b border-blue-500/30 pb-1">SYSTEM MONITOR</div>
 
             <div className="flex justify-between mb-1">

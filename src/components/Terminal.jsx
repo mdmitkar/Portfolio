@@ -28,6 +28,7 @@ const commands = {
 const Terminal = ({ onCommand }) => {
     const [history, setHistory] = useState([
         { type: 'output', content: 'mitkar@ubuntu:~$' },
+        { type: 'output', content: 'Type "help" to see available commands.' },
         { type: 'output', content: 'neofetch' },
         { type: 'raw', content: commands.neofetch },
     ]);

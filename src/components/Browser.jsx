@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, RotateCw, Home, Lock, X } from 'lucide-react';
 
-const Browser = ({ initialUrl = 'https://google.com' }) => {
+const Browser = ({ initialUrl = '/MDRESUME.pdf' }) => {
     const [url, setUrl] = useState(initialUrl);
     const [isLoading, setIsLoading] = useState(false);
 

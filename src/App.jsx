@@ -180,37 +180,37 @@ function App() {
                     */}
 
                     {/* User Home */}
-                    <div className={`absolute ${isMobile ? 'left-4 top-16' : 'top-16 left-20 space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-24 top-80' : 'top-16 left-20 space-y-28'}`}>
                         <DesktopIcon id="profile" label="User Home" icon="👤" onDoubleClick={() => openWindow('about')} />
                     </div>
 
                     {/* Exploits (Work) */}
-                    <div className={`absolute ${isMobile ? 'left-32 top-16' : 'top-16 left-44 space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-52 top-80' : 'top-16 left-44 space-y-28'}`}>
                         <DesktopIcon id="projects" label="Exploits" icon="🛠️" onDoubleClick={() => openWindow('work')} />
                     </div>
 
                     {/* Terminal */}
-                    <div className={`absolute ${isMobile ? 'left-60 top-16' : 'top-16 left-72 space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-80 top-80' : 'top-16 left-72 space-y-28'}`}>
                         <DesktopIcon id="terminal" label="Terminal" icon=">_" onDoubleClick={() => openWindow('terminal')} />
                     </div>
 
                     {/* Mail (Contact) */}
-                    <div className={`absolute ${isMobile ? 'left-4 top-40' : 'top-16 left-96 space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-24 top-[26rem]' : 'top-16 left-96 space-y-28'}`}>
                         <DesktopIcon id="contact" label="Mail" icon="✉️" onDoubleClick={() => openWindow('contact')} />
                     </div>
 
                     {/* Resume */}
-                    <div className={`absolute ${isMobile ? 'left-32 top-40' : 'top-16 left-[30rem] space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-52 top-[26rem]' : 'top-16 left-[30rem] space-y-28'}`}>
                         <DesktopIcon id="resume" label="Resume" icon="📄" isPdf={true} onDoubleClick={() => openWindow('resume')} />
                     </div>
 
                     {/* Firefox (Browser) */}
-                    <div className={`absolute ${isMobile ? 'left-60 top-40' : 'top-16 left-[36rem] space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-80 top-[26rem]' : 'top-16 left-[36rem] space-y-28'}`}>
                         <DesktopIcon id="browser" label="Firefox" icon="🌐" onDoubleClick={() => openWindow('browser')} />
                     </div>
 
                     {/* Trash */}
-                    <div className={`absolute ${isMobile ? 'left-4 top-64' : 'top-16 left-[42rem] space-y-28'}`}>
+                    <div className={`absolute ${isMobile ? 'left-24 top-[32rem]' : 'top-16 left-[42rem] space-y-28'}`}>
                         <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => { }} />
                     </div>
                 </div >
