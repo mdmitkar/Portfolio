@@ -10,15 +10,30 @@ const SidebarItem = ({ icon: Icon, label, active, count }) => (
 );
 
 const Contact = () => {
-    const [status, setStatus] = useState('idle'); // idle, sending, sent
+    const [status, setStatus] = useState('idle'); // idle, sending, sent, error
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRfR8M2__3LsVPk9IErA-m6NVsQ5k6_phSKw6lQ-3xiRr4ZH8DLeazu2BUm7YCaNZ9/exec";
 
-    const handleSend = (e) => {
+    const handleSend = async (e) => {
         e.preventDefault();
+
         setStatus('sending');
-        setTimeout(() => {
+        const form = e.target;
+        const data = new FormData(form);
+
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: data,
+                mode: "no-cors" // Essential for Google Sheets
+            });
             setStatus('sent');
-            window.location.href = "mailto:mmitkar22it@student.mes.ac.in";
-        }, 1500);
+            form.reset();
+            setTimeout(() => setStatus('idle'), 3000);
+        } catch (error) {
+            console.error('Error!', error.message);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     return (
@@ -72,9 +87,25 @@ const Contact = () => {
                                 </span>
                             </div>
                         </div>
+
+                        {/* From (Email) Input */}
+                        <div className="flex items-center gap-3 border-b border-os-border pb-2">
+                            <span className="text-sm font-medium opacity-50 w-16">From:</span>
+                            <input
+                                required
+                                name="email"
+                                type="email"
+                                placeholder="your.email@example.com"
+                                className="flex-1 bg-transparent border-none outline-none placeholder-white/20 font-medium"
+                                style={{ color: 'var(--os-text)' }}
+                            />
+                        </div>
+
                         <div className="flex items-center gap-3 border-b border-os-border pb-2">
                             <span className="text-sm font-medium opacity-50 w-16">Subject:</span>
                             <input
+                                required
+                                name="subject"
                                 type="text"
                                 placeholder="Project Inquiry / Job Opportunity"
                                 className="flex-1 bg-transparent border-none outline-none placeholder-white/20 font-medium"
@@ -84,6 +115,8 @@ const Contact = () => {
                     </div>
 
                     <textarea
+                        required
+                        name="message"
                         className="flex-1 bg-transparent border-none outline-none resize-none placeholder-white/20 leading-relaxed font-mono text-sm"
                         placeholder="Hi Muhammad, I saw your portfolio and..."
                         style={{ color: 'var(--os-text)' }}
@@ -92,12 +125,16 @@ const Contact = () => {
                     <div className="mt-6 flex justify-end">
                         <button
                             type="submit"
+                            disabled={status === 'sending'}
                             className={`px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-all flex items-center gap-2 shadow-lg
-                                ${status === 'sending' ? 'scale-95 opacity-80' : ''}`}
+                                ${status === 'sending' ? 'scale-95 opacity-80 cursor-wait' : ''}
+                                ${status === 'sent' ? 'bg-green-600 hover:bg-green-500' : ''}
+                                `}
                         >
                             {status === 'idle' && <><Send size={16} /> Send Message</>}
                             {status === 'sending' && 'Sending...'}
-                            {status === 'sent' && 'Sent!'}
+                            {status === 'sent' && 'Sent Successfully!'}
+                            {status === 'error' && 'Failed. Try again.'}
                         </button>
                     </div>
                 </form>
