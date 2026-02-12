@@ -28,7 +28,7 @@ const ProjectCard = ({ title, desc, image, role, stack, link, github, onOpen }) 
                 </div>
             </div>
             <button
-                onClick={() => onOpen(link || 'https://google.com')}
+                onClick={() => window.open(link || 'https://google.com', '_blank')}
                 className="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-full transition-colors self-center shadow-lg shadow-blue-900/20"
             >
                 OPEN
