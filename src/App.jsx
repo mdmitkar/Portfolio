@@ -191,7 +191,7 @@ function App() {
                         <DesktopIcon id="browser" label="Firefox" icon="🌐" onDoubleClick={() => openWindow('browser')} />
                     </div>
 
-                    <div className="absolute bottom-20 right-6">
+                    <div className={`absolute ${isMobile ? 'bottom-24 right-4' : 'top-16 left-[36rem] space-y-28'}`}>
                         <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => { }} />
                     </div>
                 </div >

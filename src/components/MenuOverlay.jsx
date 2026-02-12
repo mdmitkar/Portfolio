@@ -86,7 +86,7 @@ const MenuOverlay = ({ isOpen, toggleMenu }) => {
                     {/* Footer Links */}
                     <div className="absolute bottom-10 flex gap-8 text-sm font-body uppercase tracking-widest opacity-60">
                         <a href="#" className="hover:underline">LinkedIn</a>
-                        <a href="mailto:mitkarmuhammad@gmail.com" className="hover:underline">Email</a>
+                        <a href="mailto:mmitkar22it@student.mes.ac.in" className="hover:underline">Email</a>
                         <a href="#" className="hover:underline">Github</a>
                     </div>
                 </div>

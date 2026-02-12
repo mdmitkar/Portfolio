@@ -17,7 +17,7 @@ const Contact = () => {
         setStatus('sending');
         setTimeout(() => {
             setStatus('sent');
-            window.location.href = "mailto:mitkarmuhammad@gmail.com";
+            window.location.href = "mailto:mmitkar22it@student.mes.ac.in";
         }, 1500);
     };
 
@@ -68,7 +68,7 @@ const Contact = () => {
                             <span className="text-sm font-medium opacity-50 w-16">To:</span>
                             <div className="flex-1 flex items-center gap-2">
                                 <span className="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-sm border border-blue-500/20 flex items-center gap-1">
-                                    Muhammad Mitkar <span className="opacity-50 text-xs">&lt;mitkarmuhammad@gmail.com&gt;</span>
+                                    Muhammad Mitkar <span className="opacity-50 text-xs">&lt;mmitkar22it@student.mes.ac.in&gt;</span>
                                 </span>
                             </div>
                         </div>

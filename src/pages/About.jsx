@@ -72,7 +72,7 @@ const About = () => {
                         <a href="https://www.linkedin.com/in/muhammad-mitkar/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-white/5 hover:bg-[#0077b5] hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
                             <Linkedin size={20} />
                         </a>
-                        <a href="mailto:mitkarmuhammad@gmail.com" className="p-3 rounded-xl bg-white/5 hover:bg-red-500 hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
+                        <a href="mailto:mmitkar22it@student.mes.ac.in" className="p-3 rounded-xl bg-white/5 hover:bg-red-500 hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
                             <Mail size={20} />
                         </a>
                     </div>
