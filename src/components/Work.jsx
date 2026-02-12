@@ -82,8 +82,8 @@ const Work = ({ openBrowser }) => {
                             desc="Decentralized Verifiable Credential Platform on opBNB. Issues tamper-proof on-chain records, reducing academic verification time from days to < 2 minutes. Integrated with DeSoc dApp and AI-driven networking."
                             role="Aug 2025"
                             image="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=600&auto=format&fit=crop"
-                            link="https://chaincred.com"
-                            github="#"
+                            link="https://www.youtube.com/watch?v=yDQA6xOlVpQ"
+                            github="https://github.com/mdmitkar/ChainCred"
                             onOpen={openBrowser}
                             stack={[
                                 { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
@@ -96,8 +96,8 @@ const Work = ({ openBrowser }) => {
                             desc="AI-powered study companion for GATE CS aspirants. Features personalized revision paths, AI tutor (LLaMA 3.3), and analytics. Built with Next.js, FastAPI, and Random Forest models."
                             role="May 2025"
                             image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop"
-                            link="https://gatesmart.in"
-                            github="#"
+                            link="https://gate-smart-five.vercel.app/"
+                            github="https://github.com/mdmitkar/GateSmart"
                             onOpen={openBrowser}
                             stack={[
                                 { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
@@ -117,8 +117,8 @@ const Work = ({ openBrowser }) => {
                             desc="Multilingual Language Detection App achieving ~91% accuracy using GRU/BiLSTM models. Deployed with Streamlit and Flask for real-time predictions."
                             role="Dec 2024"
                             image="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop"
-                            link="#"
-                            github="#"
+                            link="https://lingualsense7.streamlit.app/"
+                            github="https://github.com/mdmitkar/LingualSense"
                             onOpen={openBrowser}
                             stack={[
                                 { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },

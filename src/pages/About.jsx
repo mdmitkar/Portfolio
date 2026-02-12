@@ -64,12 +64,11 @@ const About = () => {
                         </span>
                     </div>
 
-                    {/* Social Actions */}
                     <div className="flex gap-2 w-full justify-center mb-6">
-                        <a href="https://github.com/MuhammadMitkar" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-white/5 hover:bg-black hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
+                        <a href="https://github.com/mdmitkar" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-white/5 hover:bg-black hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
                             <Github size={20} />
                         </a>
-                        <a href="https://www.linkedin.com/in/muhammad-mitkar/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-white/5 hover:bg-[#0077b5] hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
+                        <a href="https://www.linkedin.com/in/muhammadmitkar/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-white/5 hover:bg-[#0077b5] hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">
                             <Linkedin size={20} />
                         </a>
                         <a href="mailto:mmitkar22it@student.mes.ac.in" className="p-3 rounded-xl bg-white/5 hover:bg-red-500 hover:text-white transition-all border border-os-border hover:shadow-lg hover:-translate-y-1">

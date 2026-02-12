@@ -10,6 +10,7 @@ import Browser from './components/Browser';
 import TopBar from './components/TopBar';
 import BootScreen from './components/BootScreen';
 import SystemWidget from './components/SystemWidget';
+import TrashBin from './components/TrashBin';
 import gsap from 'gsap';
 import Draggable from 'gsap/Draggable';
 
@@ -112,6 +113,7 @@ function App() {
                 case 'terminal': title = 'mitkar@linux:~'; if (!isMobile) { w = 'min(700px, 90vw)'; h = 'min(450px, 70vh)'; } break;
                 case 'resume': title = 'Document Viewer'; if (!isMobile) { w = 'min(800px, 90vw)'; h = 'min(85vh, 900px)'; } break;
                 case 'browser': title = 'Firefox ESR'; if (!isMobile) { w = 'min(950px, 90vw)'; h = 'min(700px, 85vh)'; } break;
+                case 'trash': title = 'Trash'; if (!isMobile) { w = 'min(600px, 90vw)'; h = 'min(400px, 60vh)'; } break;
             }
 
             return [...prev.map(w => ({ ...w, active: false })), {
@@ -138,8 +140,9 @@ function App() {
             case 'contact': return <Contact />;
             case 'resume': return <ResumeViewer />;
             case 'browser': return <Browser {...props} />;
+            case 'trash': return <TrashBin />;
             case 'terminal': return <Terminal onCommand={(cmd) => {
-                if (['about', 'work', 'contact', 'resume', 'browser'].includes(cmd)) openWindow(cmd);
+                if (['about', 'work', 'contact', 'resume', 'browser', 'trash'].includes(cmd)) openWindow(cmd);
             }} />;
             default: return null;
         }
@@ -211,7 +214,7 @@ function App() {
 
                     {/* Trash */}
                     <div className={`absolute ${isMobile ? 'left-24 top-[32rem]' : 'top-16 left-[42rem] space-y-28'}`}>
-                        <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => { }} />
+                        <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => openWindow('trash')} />
                     </div>
                 </div >
             </div >
