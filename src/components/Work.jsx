@@ -63,7 +63,7 @@ const Work = ({ openBrowser }) => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-80"></div>
                 <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover mix-blend-overlay" />
                 <div className="absolute bottom-0 left-0 p-8">
-                    <h1 className="text-4xl font-bold text-white mb-2 filter drop-shadow-lg">App Store</h1>
+                    <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 filter drop-shadow-lg">App Store</h1>
                     <p className="text-white/80 text-sm max-w-md filter drop-shadow-md">
                         Explore my portfolio of decentralized apps and AI-powered tools.
                     </p>
@@ -71,7 +71,7 @@ const Work = ({ openBrowser }) => {
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 overflow-y-auto p-8">
+            <div className="flex-1 overflow-y-auto p-4 md:p-8">
 
                 {/* Featured Section */}
                 <div className="mb-10">

@@ -94,7 +94,10 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
                 </div>
 
                 {/* Yaru Controls (Right side) */}
-                <div className="flex items-center gap-2" onMouseDown={(e) => e.stopPropagation()}>
+                <div className="flex items-center gap-2"
+                    onMouseDown={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
+                >
                     <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white transition-colors">
                         <Minus size={12} />
                     </button>
@@ -103,6 +106,10 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
                     </button>
                     <button
                         onClick={handleClose}
+                        onTouchEnd={(e) => {
+                            e.stopPropagation();
+                            handleClose();
+                        }}
                         className="w-6 h-6 flex items-center justify-center rounded-full bg-[#E95420] hover:bg-[#d94612] text-white shadow-md transition-colors"
                     >
                         <X size={14} />

@@ -34,7 +34,7 @@ const ExperienceItem = ({ role, company, companyLogo, period, location, desc, co
 
 const About = () => {
     return (
-        <div className="p-8 min-h-full flex items-center justify-center" style={{ color: 'var(--os-text)' }}>
+        <div className="p-4 md:p-8 min-h-full flex items-center justify-center" style={{ color: 'var(--os-text)' }}>
             <div className="w-full max-w-5xl flex flex-col md:flex-row gap-8">
 
                 {/* Left Column: Profile Card */}

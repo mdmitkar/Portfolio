@@ -172,30 +172,45 @@ function App() {
             <SystemWidget />
 
             {/* Desktop Icons */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="pointer-events-auto">
-                    <div className={`absolute ${isMobile ? 'top-16 left-4 space-y-24' : 'top-16 left-20 space-y-28'}`}>
+            <div className="absolute inset-0 z-0 pointer-events-none p-4 pt-16 md:p-0">
+                <div className="pointer-events-auto w-full h-full relative">
+                    {/* 
+                        Mobile Layout: Grid flow
+                        Desktop Layout: Custom Absolute Positions 
+                    */}
+
+                    {/* User Home */}
+                    <div className={`absolute ${isMobile ? 'left-4 top-16' : 'top-16 left-20 space-y-28'}`}>
                         <DesktopIcon id="profile" label="User Home" icon="👤" onDoubleClick={() => openWindow('about')} />
                     </div>
-                    <div className={`absolute ${isMobile ? 'top-16 right-4 space-y-24' : 'top-16 left-44 space-y-28'}`}>
+
+                    {/* Exploits (Work) */}
+                    <div className={`absolute ${isMobile ? 'left-32 top-16' : 'top-16 left-44 space-y-28'}`}>
                         <DesktopIcon id="projects" label="Exploits" icon="🛠️" onDoubleClick={() => openWindow('work')} />
                     </div>
-                    <div className={`absolute ${isMobile ? 'top-48 left-4 space-y-24' : 'top-16 left-72 space-y-28'}`}>
+
+                    {/* Terminal */}
+                    <div className={`absolute ${isMobile ? 'left-60 top-16' : 'top-16 left-72 space-y-28'}`}>
                         <DesktopIcon id="terminal" label="Terminal" icon=">_" onDoubleClick={() => openWindow('terminal')} />
                     </div>
-                    <div className={`absolute ${isMobile ? 'top-48 right-4 space-y-24' : 'top-16 left-96 space-y-28'}`}>
+
+                    {/* Mail (Contact) */}
+                    <div className={`absolute ${isMobile ? 'left-4 top-40' : 'top-16 left-96 space-y-28'}`}>
                         <DesktopIcon id="contact" label="Mail" icon="✉️" onDoubleClick={() => openWindow('contact')} />
                     </div>
-                    {/* Resume Icon */}
-                    <div className={`absolute ${isMobile ? 'top-80 left-4 space-y-24' : 'top-16 left-[30rem] space-y-28'}`}>
+
+                    {/* Resume */}
+                    <div className={`absolute ${isMobile ? 'left-32 top-40' : 'top-16 left-[30rem] space-y-28'}`}>
                         <DesktopIcon id="resume" label="Resume" icon="📄" isPdf={true} onDoubleClick={() => openWindow('resume')} />
                     </div>
-                    {/* Burp Suite Shortcut */}
-                    <div className={`absolute ${isMobile ? 'bottom-24 left-4' : 'top-16 left-[36rem] space-y-28'}`}>
+
+                    {/* Firefox (Browser) */}
+                    <div className={`absolute ${isMobile ? 'left-60 top-40' : 'top-16 left-[36rem] space-y-28'}`}>
                         <DesktopIcon id="browser" label="Firefox" icon="🌐" onDoubleClick={() => openWindow('browser')} />
                     </div>
 
-                    <div className={`absolute ${isMobile ? 'bottom-24 right-4' : 'top-16 left-[42rem] space-y-28'}`}>
+                    {/* Trash */}
+                    <div className={`absolute ${isMobile ? 'left-4 top-64' : 'top-16 left-[42rem] space-y-28'}`}>
                         <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => { }} />
                     </div>
                 </div >

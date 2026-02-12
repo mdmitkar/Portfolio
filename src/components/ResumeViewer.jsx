@@ -4,7 +4,7 @@ const ResumeViewer = () => {
     return (
         <div className="w-full h-full bg-[#525659] flex flex-col">
             <div className="h-12 bg-[#323639] flex items-center justify-between px-4 shadow-md z-10 shrink-0">
-                <span className="text-gray-300 text-xs font-medium">MDRESUME.pdf</span>
+                <span className="text-gray-300 text-xs font-medium truncate max-w-[150px] md:max-w-none">MDRESUME.pdf</span>
                 <div className="flex items-center gap-2">
                     <button className="bg-black/20 hover:bg-black/40 text-white rounded p-1.5 transition-colors" title="Zoom Out">-</button>
                     <span className="text-white/50 text-xs">100%</span>

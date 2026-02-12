@@ -62,7 +62,7 @@ const Contact = () => {
                 </div>
 
                 {/* Form */}
-                <form className="flex-1 flex flex-col p-6 overflow-y-auto" onSubmit={handleSend}>
+                <form className="flex-1 flex flex-col p-4 md:p-6 overflow-y-auto" onSubmit={handleSend}>
                     <div className="space-y-4 mb-6">
                         <div className="flex items-center gap-3 border-b border-os-border pb-2">
                             <span className="text-sm font-medium opacity-50 w-16">To:</span>
