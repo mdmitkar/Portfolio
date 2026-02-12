@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@theme {
+    --color-os-bg: var(--os-bg);
+    --color-os-panel: var(--os-panel);
+    --color-os-accent: var(--os-accent);
+    --color-os-text: var(--os-text);
+    --color-os-border: var(--os-border);
+
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+    /* Ubuntu Yaru Theme */
+    --os-bg: #2c001e;
+    /* Ubuntu Aubergine (Background) */
+    --os-panel: rgba(28, 28, 28, 0.95);
+    /* Yaru Dark Panel */
+    --os-accent: #E95420;
+    /* Ubuntu Orange */
+    --os-text: #fdfdfd;
+    /* White text */
+    --os-border: #3E3E3E;
+    /* Dark Grey Border */
+}
+
+/* --- Professional Wallpaper --- */
+.bg-wallpaper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    min-height: 100vh;
+    background-color: #2c001e;
+    /* Ubuntu Aubergine fallback */
+    background-image: url('/ubantuwallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Subtle enhancement for text readability */
+    filter: contrast(1.1) brightness(0.9);
+}
+
+/* --- Kali Panel Look --- */
+.glass-panel {
+    background: var(--os-panel);
+    border: 1px solid var(--os-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.top-bar-glass {
+    background: #0a0a0a;
+    /* Almost black */
+    border-bottom: 2px solid var(--os-accent);
+    /* Kali Blue Line */
+    color: white;
+}
+
+/* --- Selection --- */
+::selection {
+    background: var(--os-accent);
+    color: black;
+}
+
+/* Scrollbar - Minimal Console Style */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 0px;
+    /* Square */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--os-accent);
+}
+
+/* Animation Utilities */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
