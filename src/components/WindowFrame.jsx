@@ -9,7 +9,13 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
     const windowRef = useRef(null);
     const dragHandleRef = useRef(null);
 
+    const onFocusRef = useRef(onFocus);
     const [isDraggableMobile, setIsDraggableMobile] = React.useState(false);
+
+    // Keep callback ref updated
+    useEffect(() => {
+        onFocusRef.current = onFocus;
+    }, [onFocus]);
 
     useEffect(() => {
         const d = Draggable.create(windowRef.current, {
@@ -22,7 +28,7 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
             zIndexBoost: false,
             allowContextMenu: true,
             onPress: () => {
-                onFocus();
+                onFocusRef.current?.();
                 // Smooth lift
                 gsap.to(windowRef.current, {
                     scale: 1.01,
@@ -42,7 +48,7 @@ const WindowFrame = ({ title, onClose, isActive, onFocus, children, initialPos =
             }
         });
         return () => d[0].kill();
-    }, [onFocus]);
+    }, []); // Empty dependency array allows Draggable to stay alive across renders
 
     // Handle Maximize/Minimize State
     useEffect(() => {
