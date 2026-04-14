@@ -11,6 +11,8 @@ import TopBar from './components/TopBar';
 import BootScreen from './components/BootScreen';
 import SystemWidget from './components/SystemWidget';
 import TrashBin from './components/TrashBin';
+import CoffeeISO from './components/Coffee';
+import SystemAlert from './components/SystemAlert';
 import gsap from 'gsap';
 import { Draggable } from 'gsap/all';
 
@@ -114,6 +116,8 @@ function App() {
                 case 'resume': title = 'Document Viewer'; if (!isMobile) { w = 'min(800px, 90vw)'; h = 'min(85vh, 900px)'; } break;
                 case 'browser': title = 'Firefox ESR'; if (!isMobile) { w = 'min(950px, 90vw)'; h = 'min(700px, 85vh)'; } break;
                 case 'trash': title = 'Trash'; if (!isMobile) { w = 'min(600px, 90vw)'; h = 'min(400px, 60vh)'; } break;
+                case 'coffee': title = 'Coffee.iso'; if (!isMobile) { w = 'min(500px, 90vw)'; h = 'min(550px, 80vh)'; } break;
+                case 'system-alert': title = 'System Message'; w = 'min(450px, 90vw)'; h = '250px'; break;
             }
 
             return [...prev.map(w => ({ ...w, active: false })), {
@@ -154,8 +158,10 @@ function App() {
             case 'resume': return <ResumeViewer />;
             case 'browser': return <Browser {...props} />;
             case 'trash': return <TrashBin />;
+            case 'coffee': return <CoffeeISO onOpenWindow={openWindow} />;
+            case 'system-alert': return <SystemAlert {...props} onClose={() => closeWindow(props.windowId || 'system-alert')} />;
             case 'terminal': return <Terminal onCommand={(cmd) => {
-                if (['about', 'work', 'contact', 'resume', 'browser', 'trash'].includes(cmd)) openWindow(cmd);
+                if (['about', 'work', 'contact', 'resume', 'browser', 'trash', 'coffee'].includes(cmd)) openWindow(cmd);
             }} />;
             default: return null;
         }
@@ -228,6 +234,11 @@ function App() {
                     {/* Trash */}
                     <div className={`absolute ${isMobile ? 'left-24 top-[32rem]' : 'top-16 left-[42rem] space-y-28'}`}>
                         <DesktopIcon id="trash" label="Trash" icon="🗑️" onDoubleClick={() => openWindow('trash')} />
+                    </div>
+
+                    {/* Coffee.iso */}
+                    <div className={`absolute ${isMobile ? 'left-52 top-[32rem]' : 'top-[16rem] left-20'}`}>
+                        <DesktopIcon id="coffee" label="Coffee.iso" icon="☕" onDoubleClick={() => openWindow('coffee')} />
                     </div>
                 </div >
             </div >

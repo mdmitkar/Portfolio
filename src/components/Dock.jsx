@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { User, Briefcase, Mail, Terminal as TerminalIcon, Grid } from 'lucide-react';
+import { User, Briefcase, Mail, Terminal as TerminalIcon, Grid, Coffee } from 'lucide-react';
 import gsap from 'gsap';
 
 const DockItem = ({ icon: Icon, label, onClick, isOpen }) => {
@@ -86,6 +86,12 @@ const Dock = ({ openWindow, windows }) => {
                 label="Contact"
                 onClick={() => openWindow('contact')}
                 isOpen={windows.find(w => w.id === 'contact')?.isOpen}
+            />
+            <DockItem
+                icon={Coffee}
+                label="Coffee.iso"
+                onClick={() => openWindow('coffee')}
+                isOpen={windows.find(w => w.id === 'coffee')?.isOpen}
             />
 
             {/* Separator for open windows */}
