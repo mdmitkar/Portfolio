@@ -82,6 +82,14 @@ const CoffeeISO = ({ onOpenWindow }) => {
                             size={180}
                             level="H"
                             includeMargin={false}
+                            imageSettings={{
+                                src: "/favicon-circle.png",
+                                x: undefined,
+                                y: undefined,
+                                height: 45,
+                                width: 45,
+                                excavate: true,
+                            }}
                         />
                         <div className="mt-3 text-center">
                             <span className="text-[9px] font-black text-black opacity-30 tracking-[0.2em]">SCAN TO PAY VIA UPI</span>
